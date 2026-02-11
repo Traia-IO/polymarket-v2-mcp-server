@@ -1,0 +1,21 @@
+{
+  "include": [
+    "server.py",
+    "mcp_health_check.py"
+  ],
+  "exclude": [
+    "**/__pycache__",
+    ".venv",
+    "**/*.pyc"
+  ],
+  "extraPaths": [
+    "../../../../IATP/src",
+    "/Users/eitanlavi/workspace/traia/IATP/src"
+  ],
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false,
+  "venvPath": ".",
+  "venv": ".venv"
+}

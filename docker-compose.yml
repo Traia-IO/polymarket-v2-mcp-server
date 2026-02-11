@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  polymarket-v2-mcp:
+    build: .
+    container_name: polymarket-v2-mcp-server
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8000
+      - STAGE=${STAGE:-MAINNET}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      # API Authentication (server's internal key for payment mode)
+      # Set this in .env file when deploying (creator provides their master API key)
+      - POLYMARKET_V2_API_KEY=${POLYMARKET_V2_API_KEY}      # D402 Payment Protocol Configuration
+      - SERVER_ADDRESS=${SERVER_ADDRESS:-}
+      - MCP_OPERATOR_PRIVATE_KEY=${MCP_OPERATOR_PRIVATE_KEY:-}  # For signing settlement attestations
+      - MCP_OPERATOR_ADDRESS=${MCP_OPERATOR_ADDRESS:-}  # Operator's public address (for verification)
+      - D402_FACILITATOR_URL=${D402_FACILITATOR_URL:-https://test-facilitator.d402.net}
+      - D402_FACILITATOR_API_KEY=${D402_FACILITATOR_API_KEY:-}
+      - D402_TESTING_MODE=${D402_TESTING_MODE:-false}  # Set to 'true' for local testing without facilitator
+      - NETWORK=${NETWORK:-sepolia}
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 

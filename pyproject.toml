@@ -1,0 +1,29 @@
+[project]
+name = "polymarket-v2-mcp-server"
+version = "0.1.0"
+description = "MCP server for Polymarket v2 API with  authentication and  HTTP 402 payment protocol support"
+requires-python = ">=3.12"
+dependencies = [
+    "anyio>=4.0.0",
+    "mcp>=1.1.2",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.5",
+    "starlette>=0.45.0",
+    "retry>=0.9.2",
+    "traia-iatp>=0.1.87",  # For d402 payment protocol and RPC fallback support
+    "uvicorn>=0.37.0",
+    "web3>=6.15.0",  # For blockchain payment verification
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "server.py",
+    "mcp_health_check.py",
+] 
