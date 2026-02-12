@@ -2,18 +2,31 @@
   "github_url": "https://github.com/Traia-IO/polymarket-v2-mcp-server",
   "mcp_server": {
     "name": "polymarket-v2-mcp",
-    "description": "Polymarket api mcp server for btc and eth",
+    "description": "Polymarket history mcp v2",
     "server_type": "streamable-http",
     "requires_api_key": true,
-"api_key_header": "Authorization",
-    "api_keys": ["POLYMARKET_V2_API_KEY"],
-"capabilities": [
-      "example_tool"
-    ]
+    "api_key_header": "Authorization",
+    "api_keys": [
+      "POLYMARKET_V2_API_KEY"
+    ],
+    "capabilities": [
+      "health_check",
+      "api_status",
+      "get_latest_sentiment_tick_or_rollup",
+      "get_sentiment_history",
+      "get_latest_market_snapshot"
+    ],
+    "payment_protocol": "402",
+    "dual_mode": true,
+    "dual_mode_description": "Supports both authenticated (free with API key) and payment (402 protocol) modes"
   },
   "deployment_method": "cloud_run",
   "gcp_project_id": "traia-mcp-servers",
   "gcp_region": "us-central1",
-  "tags": ["polymarket v2", "api", "mcp"],
+  "tags": [
+    "polymarket v2",
+    "api",
+    "mcp"
+  ],
   "ref": "main"
-} 
+}

@@ -10,7 +10,7 @@ dependencies = [
     "requests>=2.32.5",
     "starlette>=0.45.0",
     "retry>=0.9.2",
-    "traia-iatp>=0.1.87",  # For d402 payment protocol and RPC fallback support
+    "traia-iatp>=0.1.91",  # For d402 payment protocol and RPC fallback support
     "uvicorn>=0.37.0",
     "web3>=6.15.0",  # For blockchain payment verification
 ]

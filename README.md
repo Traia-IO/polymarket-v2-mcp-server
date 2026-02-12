@@ -232,7 +232,7 @@ The `deployment_params.json` file contains the deployment configuration for this
   "github_url": "https://github.com/Traia-IO/polymarket-v2-mcp-server",
   "mcp_server": {
     "name": "polymarket-v2-mcp",
-    "description": "Polymarket api mcp server for btc and eth",
+    "description": "Polymarket history mcp v2",
     "server_type": "streamable-http",
 "requires_api_key": true,
     "api_key_header": "Authorization",
